@@ -60,7 +60,7 @@ public class NumberFragment extends Fragment {
                     Uri uri = Uri.parse("content://sms");
                     String[] reqCols = new String[]{"date", "address", "body", "type"};
                     ContentResolver cr = getActivity().getContentResolver();
-                    String filter = "body LIKE ?";
+                    String filter = "address LIKE ?";
                     String[] filterArgs = {"%" + split[i] + "%"};
                     Cursor cursor = cr.query(uri, reqCols, filter, filterArgs, null);
 
