@@ -27,11 +27,6 @@ public class WordFragment extends Fragment {
     TextView smsTextView;
     EditText filteringEditText;
     Button retrieveButton;
-    Activity parentActivity;
-
-    public WordFragment(Activity activity) {
-        this.parentActivity = activity;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,10 +40,10 @@ public class WordFragment extends Fragment {
         retrieveButton.setOnClickListener((View v) -> {
 
             // PERMISSIONS
-            int permissionCheck = PermissionChecker.checkSelfPermission(parentActivity, Manifest.permission.READ_SMS);
+            int permissionCheck = PermissionChecker.checkSelfPermission(getActivity(), Manifest.permission.READ_SMS);
 
             if (permissionCheck != PermissionChecker.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(parentActivity, new String[]{Manifest.permission.READ_SMS}, 0);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_SMS}, 0);
                 return;
             }
 
@@ -56,7 +51,7 @@ public class WordFragment extends Fragment {
             Uri uri = Uri.parse("content://sms");
             String[] reqCols = new String[]{"date", "address", "body", "type"};
 
-            ContentResolver contentResolver = parentActivity.getContentResolver();
+            ContentResolver contentResolver = getActivity().getContentResolver();
             String filter = "body LIKE ?";
             String[] filterArgs = {"%" + filteringEditText.getText().toString().trim() + "%"};
 
@@ -97,7 +92,7 @@ public class WordFragment extends Fragment {
                     retrieveButton.performClick();
                 }
                 else {
-                    Toast.makeText(parentActivity, "Permission not granted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Permission not granted", Toast.LENGTH_SHORT).show();
                 }
         }
     }
