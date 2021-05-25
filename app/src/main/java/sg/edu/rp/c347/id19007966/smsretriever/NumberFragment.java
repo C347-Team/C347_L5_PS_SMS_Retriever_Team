@@ -12,6 +12,7 @@ import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,6 +87,7 @@ public class NumberFragment extends Fragment {
                         while (cursor.moveToNext());
                     }
                     tvFrag1.setText(smsBody);
+                    Log.d("sdf", smsBody+"");
                 }
             }
         });
