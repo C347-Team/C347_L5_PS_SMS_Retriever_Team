@@ -23,5 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         Fragment NF2 = new WordFragment(this);
         ft.replace(R.id.frame2, NF2);
+
+        ft.commit();
     }
 }
