@@ -5,39 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFCDD2"
+    android:orientation="vertical"
     tools:context=".NumberFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/smsWord"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/word_filter_title" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextWordFilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/filter_word_hint"
-            android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/smsWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/word_filter_title" />
 
-        <Button
-            android:id="@+id/buttonRetrieveWord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/retrieve_sms_btn"
-            app:backgroundTint="#C2185B" />
+            <EditText
+                android:id="@+id/editTextWordFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/filter_word_hint"
+                android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textViewWordFilteredData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/buttonRetrieveWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retrieve_sms_btn"
+                app:backgroundTint="#C2185B" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textViewWordFilteredData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 </ScrollView>
