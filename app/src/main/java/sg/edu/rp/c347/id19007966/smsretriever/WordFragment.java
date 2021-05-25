@@ -57,15 +57,16 @@ public class WordFragment extends Fragment {
             String[] words = filteringEditText.getText().toString().trim().replaceAll("\\s+", " ").split(" ");
             String[] filterArgs = new String[words.length];
 
+            if (words.length > 0) {
+                filterArgs[0] = "%" + words[0] + "%";
+            }
+
             if (words.length > 1) {
                 int length = words.length - 1;
                 for (int i = 0; i < length; i++) {
                     filter += "OR body LIKE ?";
+                    filterArgs[i+1] = "%" + words[i+1] + "%";
                 }
-
-            }
-            for (int i = 0; i < words.length; i++) {
-                filterArgs[i] = "%" + words[i] + "%";
             }
 
             Cursor cursor = contentResolver.query(uri, reqCols, filter, filterArgs, null);
