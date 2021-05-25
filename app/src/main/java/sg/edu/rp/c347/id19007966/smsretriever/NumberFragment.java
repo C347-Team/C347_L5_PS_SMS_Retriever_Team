@@ -2,6 +2,7 @@ package sg.edu.rp.c347.id19007966.smsretriever;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,9 +21,10 @@ import android.widget.TextView;
 
 public class NumberFragment extends Fragment {
 
-    Button btnSMSRetrieve1;
+    Button btnSMSRetrieve1, btnEmail;
     TextView tvFrag1;
     EditText et1;
+    String smsBody="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +35,7 @@ public class NumberFragment extends Fragment {
         btnSMSRetrieve1 = (Button) view.findViewById(R.id.btnRetrieve1);
         et1 = (EditText) view.findViewById(R.id.editNum);
         tvFrag1 = (TextView) view.findViewById(R.id.textView2);
+        btnEmail = (Button) view.findViewById(R.id.btnEmail);
 
         btnSMSRetrieve1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +87,17 @@ public class NumberFragment extends Fragment {
                     }
                     tvFrag1.setText(smsBody);
                 }
+            }
+        });
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"jason_lim@rp.edu.sg"});
+                email.putExtra(Intent.EXTRA_SUBJECT, "Message from my SMS database");
+                email.putExtra(Intent.EXTRA_TEXT, smsBody);
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Choose an Email client: "));
             }
         });
 

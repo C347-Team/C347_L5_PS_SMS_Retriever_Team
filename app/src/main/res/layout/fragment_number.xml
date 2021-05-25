@@ -29,6 +29,12 @@
         android:textColor="#000000"
         app:backgroundTint="#83CACACA" />
 
+    <Button
+        android:id="@+id/btnEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
