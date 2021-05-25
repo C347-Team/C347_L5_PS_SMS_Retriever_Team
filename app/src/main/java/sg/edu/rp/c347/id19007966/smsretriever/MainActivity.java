@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment f1 = new NumberFragment();
         ft.replace(R.id.frame1, f1);
 
-        Fragment NF2 = new WordFragment(this);
+        Fragment NF2 = new WordFragment();
         ft.replace(R.id.frame2, NF2);
 
         ft.commit();
