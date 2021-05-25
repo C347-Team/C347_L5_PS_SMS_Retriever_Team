@@ -52,8 +52,21 @@ public class WordFragment extends Fragment {
             String[] reqCols = new String[]{"date", "address", "body", "type"};
 
             ContentResolver contentResolver = getActivity().getContentResolver();
+
             String filter = "body LIKE ?";
-            String[] filterArgs = {"%" + filteringEditText.getText().toString().trim() + "%"};
+            String[] words = filteringEditText.getText().toString().trim().replaceAll("\\s+", " ").split(" ");
+            String[] filterArgs = new String[words.length];
+
+            if (words.length > 1) {
+                int length = words.length - 1;
+                for (int i = 0; i < length; i++) {
+                    filter += "OR body LIKE ?";
+                }
+
+            }
+            for (int i = 0; i < words.length; i++) {
+                filterArgs[i] = "%" + words[i] + "%";
+            }
 
             Cursor cursor = contentResolver.query(uri, reqCols, filter, filterArgs, null);
             String smsBody = "";
