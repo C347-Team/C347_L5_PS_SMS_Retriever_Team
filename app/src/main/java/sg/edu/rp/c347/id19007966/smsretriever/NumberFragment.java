@@ -25,7 +25,6 @@ public class NumberFragment extends Fragment {
     Button btnSMSRetrieve1, btnEmail;
     TextView tvFrag1;
     EditText et1;
-    String smsBody="";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
