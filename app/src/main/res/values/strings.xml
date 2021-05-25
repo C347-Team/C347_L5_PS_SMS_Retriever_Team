@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SMS Retriever</string>
+    <string name="word_filter_title">Only SMS with this word</string>
+    <string name="filter_word_hint">Filter here</string>
+    <string name="retrieve_sms_btn">Retrieve SMS</string>
 </resources>
