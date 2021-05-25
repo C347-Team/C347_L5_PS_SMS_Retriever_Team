@@ -20,9 +20,9 @@ import android.widget.TextView;
 
 public class NumberFragment extends Fragment {
 
-    Button btnSMSRetrieve2;
-    TextView tvFrag2;
-    EditText et2;
+    Button btnSMSRetrieve1;
+    TextView tvFrag1;
+    EditText et1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,11 +30,11 @@ public class NumberFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_number, container, false);
 
-        btnSMSRetrieve2 = (Button) view.findViewById(R.id.btnRetrieve1);
-        et2 = (EditText) view.findViewById(R.id.editNum);
-        tvFrag2 = (TextView) view.findViewById(R.id.textView2);
+        btnSMSRetrieve1 = (Button) view.findViewById(R.id.btnRetrieve1);
+        et1 = (EditText) view.findViewById(R.id.editNum);
+        tvFrag1 = (TextView) view.findViewById(R.id.textView2);
 
-        btnSMSRetrieve2.setOnClickListener(new View.OnClickListener() {
+        btnSMSRetrieve1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -52,7 +52,7 @@ public class NumberFragment extends Fragment {
 
 
 
-                String word = et2.getText().toString();
+                String word = et1.getText().toString();
 
                 String[] split = word.split(" ");
 
@@ -82,7 +82,7 @@ public class NumberFragment extends Fragment {
                         }
                         while (cursor.moveToNext());
                     }
-                    tvFrag2.setText(smsBody);
+                    tvFrag1.setText(smsBody);
                 }
             }
         });
